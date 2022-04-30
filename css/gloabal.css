@@ -1,0 +1,27 @@
+* {
+    margin: 0%;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: hsl(360, 68%, 45%);
+    padding: 2rem;
+    color: white;
+}
+.nav-left, .nav-right {
+    display: flex;
+    flex-direction: row;
+}
+.nav-item {
+    margin-right: 30px;
+}

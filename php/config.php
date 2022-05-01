@@ -5,6 +5,8 @@
    define('DB_PASSWORD', '');
    define('DB_NAME', 'lotto');
 
+   $db =  new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
    $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
    if($conn == false){

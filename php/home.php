@@ -1,8 +1,29 @@
 <?php 
+    include '../php/config.php';
     session_start();
 
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
         header("location: login.php");
+    }
+
+    if(isset($_POST['btn'])) {
+        $number = $_POST['nr1'];
+
+        if(!empty($number)) {
+            $rand = rand(0,20);
+
+            if($rand == $number){
+                echo "You Win!";
+                $sql = $db->query("INSERT INTO numbers(numbers, results) VALUES('$number', 'win')");
+            } else {
+                echo "You lose!";
+                $sql = $db->query("INSERT INTO numbers(numbers, results) VALUES('$number', 'lose')");
+            }
+        }
+    }
+
+    if(isset($_POST['reset'])) {
+        $sql = $db->query("TRUNCATE TABLE numbers");
     }
 ?>
 
@@ -14,6 +35,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="../css/gloabal.css">
+    <link rel="stylesheet" href="../css/game1.css">
 </head>
 <body>
 <nav class="nav">
@@ -32,7 +54,40 @@
     </nav>
 
     <div class="welcome">
-        <h2> <?php echo "Welcome ". $_SESSION['username'] ?> You Can Use This Website Now! </h2>
+        <h2 class="welcome" > <?php echo "Welcome ". $_SESSION['username'] ?> You Can Use This Website Now! </h2>
     </div>
+
+    <section class="game1-container">
+        <h1>SELECT A RANDOM NUMBER AND TRY YOUR LUCK</h1>
+        <section class="game-container">
+            <form class="game-bar" action="" method="POST">
+                <input class="num-select" type="number" name="nr1" placeholder="Enter Number" max="20" min="0">
+                <button id="try" type="submit" name="btn">TRY!</button>
+                <button id="reset" type="submit" name="reset">RESET!</button>
+            </form>
+        </section>
+
+       <section class="score">
+        <div class="lose">
+                <h1>Lose Numbers</h1>
+                <?php 
+                $sql_lose = $db->query("SELECT * FROM numbers WHERE results = 'lose'");
+                while ($row = $sql_lose->fetch_assoc()) {
+                    echo $row['numbers'].',';
+                }
+            ?>
+            </div>
+
+            <div class="win">
+                <h1>Win Numbers</h1>
+                <?php 
+                $sql_win = $db->query("SELECT * FROM numbers WHERE results = 'win'");
+                while ($row = $sql_win->fetch_assoc()) {
+                    echo $row['numbers'].',';
+                }
+            ?>
+            </div>
+       </section>
+        </section>
 </body>
 </html>

@@ -1,0 +1,79 @@
+* {
+    margin: 0%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body {
+    text-align: center;
+}
+.welcome {
+    text-align: center;
+    margin: 1rem;
+}
+.game1-container {
+    margin: 2rem;
+}
+.game1-container {
+    margin-left: 30%;
+    margin-right: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4%;
+    background-color: hsl(216, 20%, 95%);
+    box-shadow: 4px 4px 15px 15px hsl(216, 20%, 95%);
+}
+.game-bar {
+    display: flex;
+    flex-direction: column;
+}
+.score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+}
+.lose{
+    margin-right: 2rem;
+}
+.win {
+    margin-left: 2rem;
+}
+#try {
+    border: none;
+    background-color: hsl(0, 68%, 45%);
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: large;
+    margin: 5px;
+}
+
+#try:hover {
+    transition: 0.5s;
+    box-shadow: 1px 1px 2px 2px hsl(0, 68%, 45%);
+}
+
+#reset {
+    border: none;
+    background-color: hsl(145, 100%, 39%);
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: large;
+    font-weight: bold;
+    margin: 5px;
+}
+
+#reset:hover {
+    transition: 0.5s;
+    box-shadow: 1px 1px 2px 2px hsl(145, 100%, 39%);
+}
+
+.num-select {
+    text-align: center;
+    margin: 5px;
+    height: 50px;
+}

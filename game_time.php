@@ -76,14 +76,14 @@
             #message {
                 display: none;
                 text-align: center;
+                justify-content: center;
                 background-color: red;
                 color: white;
                 font-weight: bold;
-                padding: 2rem;
+                padding: 1rem;
                 border-radius: 4px;
                 font-family: Arial, Helvetica, sans-serif;
-                width: 100%;
-                align-self: center;
+                margin: 4rem;
             }
     </style>
 </head>
@@ -109,8 +109,8 @@
             <h3>Game 5</h3>
             <p>Write game code here...</p>
         </div>
-        <div id="message">No games available at this time. Please come back later</div>
     </section>
+    <div id="message">No games available at this time. Please come back later.</div>
     <div class="digital">
       <h3 id="digital">
 

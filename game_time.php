@@ -134,19 +134,19 @@
          }
          if(time_value >= 11 && time_value <= 13){
              const game2 = document.getElementById("game2");
-             game1.style.display = "flex";
+             game2.style.display = "flex";
          }
          if(time_value >=14  && time_value <= 16){
              const game3 = document.getElementById("game3");
-             game2.style.display = "flex";
+             game3.style.display = "flex";
          }
          if(time_value >=17  && time_value <= 19){
              const game4 = document.getElementById("game4");
-             game2.style.display = "flex";
+             game4.style.display = "flex";
          }
          if(time_value >=20  && time_value <= 22){
              const game5 = document.getElementById("game5");
-             game2.style.display = "flex";
+             game5.style.display = "flex";
          }
          else {
              const message = document.getElementById("message");

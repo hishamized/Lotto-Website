@@ -12,22 +12,21 @@
     <link rel="stylesheet" href="css/gloabal.css">
     <style>
         .game-container{
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             margin: 2rem;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 4rem;
         }
         .game {
-            display: flex;
-            flex-direction: column;
             font-family: Arial, Helvetica, sans-serif;
             color: white;
             font-weight: bold;
             padding: 2rem;
         }
-        .game1, .game2, .game3 {
-            display: flex;
+        .game1, .game2, .game3, .game4, .game5 {
+            display: none;
             flex-direction: column;
         }
         .game1 {
@@ -42,6 +41,14 @@
         .game3{
             background-color: green;
             box-shadow: 4px 4px 15px 15px green;
+        }
+        .game4{
+            background-color: purple;
+            box-shadow: 4px 4px 15px 15px purple;
+        }
+        .game5{
+            background-color: purple;
+            box-shadow: 4px 4px 15px 15px purple;
         }
         .digital {
             display: flex;
@@ -82,6 +89,14 @@
             <h3>Game 3</h3>
             <p>Write game code here...</p>
         </div>
+        <div id="game4" class="game game4">
+            <h3>Game 4</h3>
+            <p>Write game code here...</p>
+        </div>
+        <div id="game5" class="game game5">
+            <h3>Game 5</h3>
+            <p>Write game code here...</p>
+        </div>
     </section>
     <div class="digital">
       <h3 id="digital">
@@ -100,23 +115,25 @@
          document.getElementById("digital").innerHTML = dateTime;
          
          
-         if(time_value >= 0 && time_value <= 8){
+         if(time_value >= 7 && time_value <= 10){
              const game1 = document.getElementById("game1");
-             game1.style.display = "none";
-             const game2 = document.getElementById("game2");
-             game2.style.display = "none";
+             game1.style.display = "flex";
          }
-         if(time_value >= 9 && time_value <= 16){
-             const game1 = document.getElementById("game1");
-             game1.style.display = "none";
-             const game3 = document.getElementById("game3");
-             game3.style.display = "none";
-         }
-         if(time_value >= 17 && time_value <= 24){
+         if(time_value >= 11 && time_value <= 13){
              const game2 = document.getElementById("game2");
-             game2.style.display = "none";
+             game1.style.display = "flex";
+         }
+         if(time_value >=14  && time_value <= 16){
              const game3 = document.getElementById("game3");
-             game3.style.display = "none";
+             game2.style.display = "flex";
+         }
+         if(time_value >=17  && time_value <= 19){
+             const game4 = document.getElementById("game4");
+             game2.style.display = "flex";
+         }
+         if(time_value >=20  && time_value <= 22){
+             const game5 = document.getElementById("game5");
+             game2.style.display = "flex";
          }
     </script>
 </body>

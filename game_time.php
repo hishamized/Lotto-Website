@@ -74,7 +74,7 @@
                 box-shadow: 1px 1px 5px 1px aqua;
             }
             #message {
-                display: none;
+                display: flex;
                 text-align: center;
                 justify-content: center;
                 background-color: red;
@@ -131,26 +131,32 @@
          if(time_value >= 7 && time_value <= 10){
              const game1 = document.getElementById("game1");
              game1.style.display = "flex";
+             const message = document.getElementById("message");
+             message.style.display = "none";
          }
          if(time_value >= 11 && time_value <= 13){
              const game2 = document.getElementById("game2");
              game2.style.display = "flex";
+             const message = document.getElementById("message");
+             message.style.display = "none";
          }
          if(time_value >=14  && time_value <= 16){
              const game3 = document.getElementById("game3");
              game3.style.display = "flex";
+             const message = document.getElementById("message");
+             message.style.display = "none";
          }
          if(time_value >=17  && time_value <= 19){
              const game4 = document.getElementById("game4");
              game4.style.display = "flex";
+             const message = document.getElementById("message");
+             message.style.display = "none";
          }
          if(time_value >=20  && time_value <= 22){
              const game5 = document.getElementById("game5");
              game5.style.display = "flex";
-         }
-         else {
              const message = document.getElementById("message");
-             message.style.display = "flex";
+             message.style.display = "none";
          }
     </script>
 </body>

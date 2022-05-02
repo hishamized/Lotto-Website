@@ -73,6 +73,18 @@
                 transform: scale(1.1);
                 box-shadow: 1px 1px 5px 1px aqua;
             }
+            #message {
+                display: none;
+                text-align: center;
+                background-color: red;
+                color: white;
+                font-weight: bold;
+                padding: 2rem;
+                border-radius: 4px;
+                font-family: Arial, Helvetica, sans-serif;
+                width: 100%;
+                align-self: center;
+            }
     </style>
 </head>
 <body>
@@ -97,6 +109,7 @@
             <h3>Game 5</h3>
             <p>Write game code here...</p>
         </div>
+        <div id="message">No games available at this time. Please come back later</div>
     </section>
     <div class="digital">
       <h3 id="digital">
@@ -134,6 +147,10 @@
          if(time_value >=20  && time_value <= 22){
              const game5 = document.getElementById("game5");
              game2.style.display = "flex";
+         }
+         else {
+             const message = document.getElementById("message");
+             message.style.display = "flex";
          }
     </script>
 </body>

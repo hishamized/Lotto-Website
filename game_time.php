@@ -136,7 +136,7 @@
          document.getElementById("digital").innerHTML = dateTime;
          
          
-         if(time_value >= 7 && time_value < 10){
+         if(time_value >= 7 && time_value < 9){
              const game1 = document.getElementById("game1");
              game1.style.display = "flex";
              const message = document.getElementById("message");
@@ -146,7 +146,7 @@
              var minutes_now = today.getMinutes();
              var seconds_now = today.getSeconds();
 
-             var hours_left = 10 - hours_now -1;
+             var hours_left = 9 - hours_now -1;
              var minutes_left = (60 - minutes_now) + (hours_left*60);
              var seconds_left = (60 - seconds_now) + minutes_left*60 ;
 

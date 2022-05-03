@@ -136,7 +136,7 @@
          document.getElementById("digital").innerHTML = dateTime;
          
          
-         if(time_value >= 7 && time_value <= 10){
+         if(time_value >= 7 && time_value < 10){
              const game1 = document.getElementById("game1");
              game1.style.display = "flex";
              const message = document.getElementById("message");
@@ -146,7 +146,7 @@
              var minutes_now = today.getMinutes();
              var seconds_now = today.getSeconds();
 
-             var hours_left = 22 - hours_now -1;
+             var hours_left = 10 - hours_now -1;
              var minutes_left = (60 - minutes_now) + (hours_left*60);
              var seconds_left = (60 - seconds_now) + minutes_left*60 ;
 
@@ -172,11 +172,11 @@
 
             window.onload = function () {
                 var countDownTIme = seconds_left,
-                    display = document.querySelector("#time5");
+                    display = document.querySelector("#time1");
                 startTimer(countDownTIme, display);
             };
          }
-         if(time_value >= 11 && time_value <= 13){
+         if(time_value >= 11 && time_value < 13){
              const game2 = document.getElementById("game2");
              game2.style.display = "flex";
              const message = document.getElementById("message");
@@ -186,7 +186,7 @@
              var minutes_now = today.getMinutes();
              var seconds_now = today.getSeconds();
 
-             var hours_left = 22 - hours_now -1;
+             var hours_left = 13 - hours_now -1;
              var minutes_left = (60 - minutes_now) + (hours_left*60);
              var seconds_left = (60 - seconds_now) + minutes_left*60 ;
 
@@ -212,11 +212,11 @@
 
             window.onload = function () {
                 var countDownTIme = seconds_left,
-                    display = document.querySelector("#time5");
+                    display = document.querySelector("#time2");
                 startTimer(countDownTIme, display);
             };
          }
-         if(time_value >=14  && time_value <= 16){
+         if(time_value >=14  && time_value <16){
              const game3 = document.getElementById("game3");
              game3.style.display = "flex";
              const message = document.getElementById("message");
@@ -226,7 +226,7 @@
              var minutes_now = today.getMinutes();
              var seconds_now = today.getSeconds();
 
-             var hours_left = 22 - hours_now -1;
+             var hours_left = 16 - hours_now -1;
              var minutes_left = (60 - minutes_now) + (hours_left*60);
              var seconds_left = (60 - seconds_now) + minutes_left*60 ;
 
@@ -252,11 +252,11 @@
 
             window.onload = function () {
                 var countDownTIme = seconds_left,
-                    display = document.querySelector("#time5");
+                    display = document.querySelector("#time3");
                 startTimer(countDownTIme, display);
             };
          }
-         if(time_value >=17  && time_value <= 19){
+         if(time_value >=17  && time_value < 19){
              const game4 = document.getElementById("game4");
              game4.style.display = "flex";
              const message = document.getElementById("message");
@@ -265,7 +265,7 @@
              var minutes_now = today.getMinutes();
              var seconds_now = today.getSeconds();
 
-             var hours_left = 22 - hours_now -1;
+             var hours_left = 19 - hours_now -1;
              var minutes_left = (60 - minutes_now) + (hours_left*60);
              var seconds_left = (60 - seconds_now) + minutes_left*60 ;
 
@@ -291,11 +291,11 @@
 
             window.onload = function () {
                 var countDownTIme = seconds_left,
-                    display = document.querySelector("#time5");
+                    display = document.querySelector("#time4");
                 startTimer(countDownTIme, display);
             };
          }
-         if(time_value >=20  && time_value <= 22){
+         if(time_value >=20  && time_value < 22){
              const game5 = document.getElementById("game5");
              game5.style.display = "flex";
              const message = document.getElementById("message");

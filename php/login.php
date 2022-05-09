@@ -1,5 +1,6 @@
 <?php
 session_start();
+$login = false;
 
 if(isset($_SESSION['username']))
 {
@@ -40,7 +41,7 @@ if(empty($err))
                     {
                         if(password_verify($password, $hashed_password))
                         {
-                            
+                            $login = true;
                             session_start();
                             $_SESSION["username"] = $username;
                             $_SESSION["id"] = $id;
@@ -49,7 +50,7 @@ if(empty($err))
                             
                             header("location: home.php");
                             
-                        } else echo "Error";
+                        } else echo "Error! Incorrect Password!";
                     }
 
                 }

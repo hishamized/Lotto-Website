@@ -11,7 +11,8 @@
 
    if($conn == false){
        die('Error: cannot connect because -->'. mysqli_connect_error($conn));
-   } else {
-       echo "Connected to the database!";
-   }
+   } 
+//    else {
+//        echo "Connected to the database! <br>";
+//    }
 ?>

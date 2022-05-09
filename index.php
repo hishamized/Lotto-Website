@@ -1,6 +1,20 @@
 <?php 
     include 'templates/navbar.php';
+    include 'php/config.php';
+    $sql = "SELECT id, username, email, password FROM users";
+    $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Name: " . $row["username"]. " " . $row["email"]. " " .$row["password"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

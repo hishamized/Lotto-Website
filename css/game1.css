@@ -26,6 +26,8 @@ body {
 .game-bar {
     display: flex;
     flex-direction: column;
+    align-self: center;
+    margin-left: 70px;
 }
 .score {
     display: flex;

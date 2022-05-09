@@ -1,5 +1,11 @@
 <?php 
-    include "templates/navbar.php"
+    include "templates/navbar.php";
+    include "php/config.php";
+    session_start();
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+      header("location: php/login.php");
+      exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -10,84 +16,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game time</title>
     <link rel="stylesheet" href="css/gloabal.css">
-    <style>
-        .game-container{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            margin: 2rem;
-            justify-content: center;
-            align-items: center;
-            gap: 4rem;
-        }
-        .game {
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-            font-weight: bold;
-            padding: 2rem;
-        }
-        .game1, .game2, .game3, .game4, .game5 {
-            display: none;
-            flex-direction: column;
-        }
-        .game1 {
-            background-color: red;
-            box-shadow: 4px 4px 15px 15px red;
-        }
-        .game2{
-            background-color: yellow;
-            box-shadow: 4px 4px 15px 15px yellow;
-            color: gray;
-        }
-        .game3{
-            background-color: green;
-            box-shadow: 4px 4px 15px 15px green;
-        }
-        .game4{
-            background-color: purple;
-            box-shadow: 4px 4px 15px 15px purple;
-        }
-        .game5{
-            background-color: purple;
-            box-shadow: 4px 4px 15px 15px purple;
-        }
-        .digital {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 5%;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: black;
-            color: aliceblue;
-            font-size: 2vw;
-            padding: 2%;
-        }
-
-            #digital {
-                background-color: white;
-                color: black;
-                border: 2px double red;
-                padding: 1%;
-            }
-            #digital:hover {
-                transition: 0.5s;
-                transform: scale(1.1);
-                box-shadow: 1px 1px 5px 1px aqua;
-            }
-            #message {
-                display: flex;
-                text-align: center;
-                justify-content: center;
-                background-color: red;
-                color: white;
-                font-weight: bold;
-                padding: 1rem;
-                border-radius: 4px;
-                font-family: Arial, Helvetica, sans-serif;
-                margin: 4rem;
-            }
-    </style>
+    <link rel="stylesheet" href="css/game1.css">
+   <link rel="stylesheet" href="css/game_time.css">
 </head>
 <body>
+    <section class="test-game-container">
+        <h3>Select any random box and try your luck!</h3>
+    <div class="test-game">
+        <?php 
+         $loop;
+         for($loop = 1; $loop <= 25; $loop = $loop + 1){
+             echo " <button  id='$loop' class=\"cell\" onclick=\"getBtnId(this)\"> $loop 
+             </button>";
+         }
+        //  onClick=\"getID()\"
+       ?> 
+    </div> 
+    </section>
+    <section class="game1-container">
+        <h1>SELECT A RANDOM NUMBER AND TRY YOUR LUCK</h1>
+        <section class="game1-container">
+            <form class="game-bar" action="" method="POST">
+                <input class="num-select" type="number" name="nr1" placeholder="Enter Number" max="20" min="0">
+                <button id="try" type="submit" name="btn">TRY!</button>
+                <button id="reset" type="submit" name="reset">RESET!</button>
+            </form>
+        </section>
+
+       <section class="score">
+        <div class="lose">
+                <h1>Lose Numbers</h1>
+                <?php 
+                $sql_lose = $db->query("SELECT * FROM numbers WHERE results = 'lose'");
+                while ($row = $sql_lose->fetch_assoc()) {
+                    echo $row['numbers'].',';
+                }
+            ?>
+            </div>
+
+            <div class="win">
+                <h1>Win Numbers</h1>
+                <?php 
+                $sql_win = $db->query("SELECT * FROM numbers WHERE results = 'win'");
+                while ($row = $sql_win->fetch_assoc()) {
+                    echo $row['numbers'].',';
+                }
+            ?>
+            </div>
+       </section>
+        </section>
     <section class="game-container">
         <div id="game1" class="game game1">
             <h3>Game 1</h3>
@@ -121,6 +98,44 @@
 
       </h3>
    </div>
+   
+<!-- Script for Random 25 box game starts -->
+<script>
+      let idNum;
+      let credit = 0;
+      let win = false;
+      let randomArray = new Array();
+        for(let i=0; i<10; i++){
+            randomArray[i] = Math.floor(Math.random()*25);
+        }
+        function getBtnId(e) {
+            const btn = e;
+            e.style.backgroundColor = "green"
+            console.log(btn.id);
+            idNum = parseInt(btn.id);
+            for(let j=0; j<10 ; j++){
+            if(randomArray[j] == idNum){
+                alert("You Won! 5$ have been credited to your account");
+                win = true;
+                credit = credit + 5;
+                // window.location.reload();
+                //AJAX 
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById(btn.id).innerHTML = this.responseText;
+                }
+                xhttp.open("GET", "php/credit.php");
+                xhttp.send();
+            } 
+         }
+         if(win == false){
+             alert("You did not win. Click 'Ok' to Try again.");
+             window.location.reload();
+         }
+        }
+       
+      </script>
+<!-- Script for Random 25 box game ends -->
 
    
    

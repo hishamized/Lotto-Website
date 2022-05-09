@@ -1,0 +1,111 @@
+.game-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+.game {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+    padding: 2rem;
+}
+.game1, .game2, .game3, .game4, .game5 {
+    display: none;
+    flex-direction: column;
+}
+.game1 {
+    background-color: red;
+    box-shadow: 4px 4px 15px 15px red;
+}
+.game2{
+    background-color: yellow;
+    box-shadow: 4px 4px 15px 15px yellow;
+    color: gray;
+}
+.game3{
+    background-color: green;
+    box-shadow: 4px 4px 15px 15px green;
+}
+.game4{
+    background-color: purple;
+    box-shadow: 4px 4px 15px 15px purple;
+}
+.game5{
+    background-color: purple;
+    box-shadow: 4px 4px 15px 15px purple;
+}
+.digital {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: aliceblue;
+    font-size: 2vw;
+    padding: 2%;
+}
+
+    #digital {
+        background-color: white;
+        color: black;
+        border: 2px double red;
+        padding: 1%;
+    }
+    #digital:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+        box-shadow: 1px 1px 5px 1px aqua;
+    }
+    #message {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        padding: 1rem;
+        border-radius: 4px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 4rem;
+    }
+    .test-game-container{
+        background-color: #E9EBEE;
+        text-align: center;
+    }
+    .test-game-container h3{
+        padding-top: 2em;
+        font-family: arial;
+        text-shadow: 0px 0px 10px salmon;
+    }
+    .test-game{
+        margin: 3em;
+        margin-top: 0%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        place-items: center;
+        gap: 1em;
+        background-color: #E9EBEE;
+        padding: 3em;
+    }
+    .cell {
+        background-color: salmon;
+        width: 5vw;
+        height: 5vw;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        font-weight: bold;
+        font-size: large;
+    }
+    .cell:hover {
+        transition: 0.5s;
+        background-color: red;
+        box-shadow: 0 0 10px 5px salmon;
+    }
+    .cell:focus{
+        background-color: gray;
+    }       
